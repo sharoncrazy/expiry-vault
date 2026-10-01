@@ -11,7 +11,7 @@ app.include_router(reminders.router)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://expiry-vault-web.onrender.com"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
