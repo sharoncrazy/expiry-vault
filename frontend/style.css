@@ -1,0 +1,253 @@
+/* ---------- Colours: change these to restyle the whole app ---------- */
+:root {
+  --background: #f4f5f7;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #d9dde3;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-background: #fef2f2;
+  --success: #15803d;
+  --success-background: #f0fdf4;
+}
+
+/* ---------- Basics ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--background);
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.container-narrow {
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: 0 0 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ---------- Header with logout button ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* ---------- Forms ---------- */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.optional {
+  font-weight: normal;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px; /* 16px stops iPhones zooming in when you tap the box */
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 14px;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  font: inherit;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--primary);
+  color: #fff;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.button-full {
+  width: 100%;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.button-secondary:hover {
+  background: var(--background);
+}
+
+.button-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  flex-shrink: 0;
+}
+
+.button-danger:hover {
+  background: var(--danger-background);
+}
+
+/* ---------- Messages ---------- */
+.message {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  white-space: pre-line; /* lets multi-line API errors show on separate lines */
+}
+
+.message.error {
+  color: var(--danger);
+  background: var(--danger-background);
+  border: 1px solid var(--danger);
+}
+
+.message.success {
+  color: var(--success);
+  background: var(--success-background);
+  border: 1px solid var(--success);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.switch-page {
+  text-align: center;
+  margin-top: 16px;
+}
+
+a {
+  color: var(--primary);
+}
+
+/* ---------- Reminder list ---------- */
+.reminder-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reminder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.reminder:last-child {
+  border-bottom: none;
+}
+
+.reminder-info {
+  min-width: 0; /* lets long names wrap instead of pushing the button off-screen */
+}
+
+.reminder-name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.reminder-details {
+  font-size: 0.95rem;
+}
+
+.reminder-created {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tag-expired {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  color: var(--danger);
+  background: var(--danger-background);
+}
+
+.empty-state,
+.loading {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px 0;
+  margin: 0;
+}
+
+/* ---------- Two inputs side by side on wider screens ---------- */
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row > div {
+  flex: 1;
+}
+
+/* ---------- Phone-width screens ---------- */
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}

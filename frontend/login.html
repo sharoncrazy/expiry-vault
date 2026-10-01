@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log in · Reminders</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <main class="container container-narrow">
+    <h1>Log in</h1>
+
+    <div class="card">
+      <div id="message" class="message" hidden></div>
+
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+        <button type="submit" id="login-button" class="button-full">Log in</button>
+      </form>
+    </div>
+
+    <p class="switch-page">No account yet? <a href="register.html">Create one</a></p>
+  </main>
+
+  <script>initLoginPage();</script>
+</body>
+</html>

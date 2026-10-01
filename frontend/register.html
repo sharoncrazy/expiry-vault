@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account · Reminders</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+</head>
+<body>
+  <main class="container container-narrow">
+    <h1>Create account</h1>
+
+    <div class="card">
+      <div id="message" class="message" hidden></div>
+
+      <form id="register-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+
+        <!-- The backend requires 8 to 72 characters -->
+        <label for="password">Password <span class="optional">(8–72 characters)</span></label>
+        <input type="password" id="password" name="password" autocomplete="new-password"
+               minlength="8" maxlength="72" required>
+
+        <button type="submit" id="register-button" class="button-full">Create account</button>
+      </form>
+    </div>
+
+    <p class="switch-page">Already have an account? <a href="login.html">Log in</a></p>
+  </main>
+
+  <script>initRegisterPage();</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My reminders</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+  <!-- Runs before the page is drawn, so logged-out users never see it -->
+  <script>requireLogin();</script>
+</head>
+<body>
+  <main class="container">
+    <div class="header">
+      <h1>My reminders</h1>
+      <button type="button" id="logout-button" class="button-secondary">Log out</button>
+    </div>
+
+    <!-- Add a reminder -->
+    <section class="card">
+      <h2>Add a reminder</h2>
+      <div id="form-message" class="message" hidden></div>
+
+      <form id="reminder-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" maxlength="200" required
+               placeholder="e.g. Car insurance">
+
+        <div class="form-row">
+          <div>
+            <label for="expiry_date">Expiry date</label>
+            <input type="date" id="expiry_date" name="expiry_date" required>
+          </div>
+          <div>
+            <label for="cost">Cost <span class="optional">(optional)</span></label>
+            <input type="number" id="cost" name="cost" min="0" step="0.01" inputmode="decimal"
+                   placeholder="0.00">
+          </div>
+        </div>
+
+        <button type="submit" id="add-button" class="button-full">Add reminder</button>
+      </form>
+    </section>
+
+    <!-- The list -->
+    <section class="card">
+      <h2>Your reminders</h2>
+      <div id="list-message" class="message" hidden></div>
+      <p id="loading" class="loading">Loading reminders…</p>
+      <p id="empty-state" class="empty-state" hidden>
+        No reminders yet. Add your first one above!
+      </p>
+      <ul id="reminder-list" class="reminder-list"></ul>
+    </section>
+  </main>
+
+  <script>initRemindersPage();</script>
+</body>
+</html>
