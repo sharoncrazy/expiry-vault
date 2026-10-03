@@ -1,0 +1,23 @@
+name: Send reminders
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v3
+
+      - run: uv sync --frozen
+
+      - run: uv run python -m app.scripts.send_reminders
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
