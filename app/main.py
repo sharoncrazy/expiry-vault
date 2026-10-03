@@ -11,11 +11,15 @@ app.include_router(reminders.router)
 
 app.add_middleware(
     CORSMiddleware,
-allow_origins=["https://expiry-vault-frontend.onrender.com"],
+allow_origins=[
+        "https://expiry-vault-frontend.onrender.com",
+        "http://localhost:5500",
+    ],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/health")
 def health():

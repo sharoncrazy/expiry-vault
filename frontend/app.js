@@ -3,7 +3,13 @@
 // ============================================================
 
 // Where the FastAPI backend is running. Change this if you move it.
-const API_BASE_URL = "https://expiry-vault.onrender.com";
+const isLocal =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1";
+
+const API_BASE_URL = isLocal
+  ? "http://localhost:8000"
+  : "https://expiry-vault.onrender.com";
 
 // The key used to save the login token in the browser's localStorage.
 const TOKEN_KEY = "reminder_app_token";
